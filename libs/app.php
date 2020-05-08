@@ -20,6 +20,8 @@ class App{
             $this->loadObject($this->path_root.'nofound.controller.php','Nofound');
         }
 
+        $this->object->loadModel(ucfirst($this->controller));
+
         if(!method_exists($this->object,$this->method)) 
             $this->object->render();
         else

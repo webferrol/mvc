@@ -4,10 +4,12 @@ class Init extends Controller{
     {
        parent::__construct();
        $this->view->setTitle('Home');
+       
     }
 
     
     public function render(){
+        print_r($this->model->foo());
         $this->view->render('init/init.view.php');
     }
 }
