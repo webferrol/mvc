@@ -10,7 +10,7 @@ class View{
 
     function __construct()
     {
-        $this->path_root = ROOT.DIRECTORY_SEPARATOR.'views'.DIRECTORY_SEPARATOR;
+        $this->path_root = ABSPATH.DIRECTORY_SEPARATOR.'views'.DIRECTORY_SEPARATOR;
         $this->title = 'Título del documento de Webferrol';
     }
 

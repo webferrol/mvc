@@ -9,7 +9,7 @@ class App{
     function __construct()
     {        
         
-        $this->path_root = ROOT.DIRECTORY_SEPARATOR.'controllers'.DIRECTORY_SEPARATOR;
+        $this->path_root = ABSPATH.DIRECTORY_SEPARATOR.'controllers'.DIRECTORY_SEPARATOR;
         $this->infoURL();
         
         $file = $this->path_root.$this->controller.'.controller.php';
@@ -20,7 +20,8 @@ class App{
             $this->loadObject($this->path_root.'nofound.controller.php','Nofound');
         }
 
-        $this->object->loadModel(ucfirst($this->controller));
+        if(method_exists($this->object, 'loadModel'))
+            $this->object->loadModel(ucfirst($this->controller));
 
         if(!method_exists($this->object,$this->method)) 
             $this->object->render();

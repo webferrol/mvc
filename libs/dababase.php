@@ -7,7 +7,7 @@ class Database{
     protected $password;
     protected $error;
 
-    function __construct(string $host = 'localhost', string $dbname = '', string $user = 'root', string $password = '',string $charset = 'UTF8')
+    function __construct(string $host = DB_HOST, string $dbname = DB_DBNAME, string $charset = DB_CHARSET, string $user = DB_USER, string $password = DB_PASSWORD)
     {
         $this->host = $host;
         $this->dbname = $dbname;

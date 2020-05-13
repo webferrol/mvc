@@ -9,7 +9,7 @@ abstract class Controller{
     }   
 
     function loadModel(string $model){
-        $path_root = ROOT.DIRECTORY_SEPARATOR.'models'.DIRECTORY_SEPARATOR;
+        $path_root = ABSPATH.DIRECTORY_SEPARATOR.'models'.DIRECTORY_SEPARATOR;
         if(file_exists($path_root.$model.'.model.php')){
             //print_r(DIR_ROOT.DIRECTORY_SEPARATOR.'models'.DIRECTORY_SEPARATOR.$model.'.model.php');
             require_once($path_root.$model.'.model.php');

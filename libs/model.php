@@ -3,7 +3,7 @@ class Model{
     protected $db;
     function __construct()
     {
-        $this->db = new Database('localhost','wf_englishpanish');
+        $this->db = new Database();
     }
 
     /**
