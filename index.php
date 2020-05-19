@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 //declare(encoding='UTF-8');
+error_reporting(E_ALL);
 
 if(phpversion()<'7.1.0') die('Versión mínima de PHP 7.1.0');
 

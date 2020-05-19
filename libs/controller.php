@@ -21,5 +21,11 @@ abstract class Controller{
         }
     }
 
+    public function sessionBool():void{
+        session_start();
+        if(!isset($_SESSION['admin']))
+            header('Location: '.URLBASE);
+    }
+
     abstract function render();
 }

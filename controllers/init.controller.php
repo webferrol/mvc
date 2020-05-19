@@ -1,5 +1,7 @@
 <?php
+require_once('includes/common.php');
 class Init extends Controller{
+    use General;
     function __construct()
     {
        parent::__construct();
@@ -13,7 +15,19 @@ class Init extends Controller{
 
     
     public function render(){
-        $articulos = $this->model->getArticles();
-        $this->view->render('init/header.view.php','init/articles.view.php','init/footer.php');
+        $this->view->articulos = $this->model->getArticles($this->obtener_post(2),2);
+        //paginación        
+        $this->view->numero_paginas = $this->numero_paginas(2);
+        $this->view->pagina_actual = $_GET['p']??1;
+        $this->view->render('init/header.view.php','init/articles.view.php','init/paginacion_footer.view.php');
     }
+
+
+    
+    public function numero_paginas(int $post_por_pagina){
+        $total_post = $this->model->getTotalArticulos();
+        $numero_paginas = ceil($total_post/$post_por_pagina);
+        return $numero_paginas;
+    }
+
 }
